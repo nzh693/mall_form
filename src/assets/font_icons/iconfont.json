@@ -1,0 +1,198 @@
+{
+  "id": "1898019",
+  "name": "test",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8082118",
+      "name": "经理",
+      "font_class": "jingli",
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    },
+    {
+      "icon_id": "11860596",
+      "name": "租户",
+      "font_class": "zuhu",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "7216312",
+      "name": "店铺运营",
+      "font_class": "dianpuyunying",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "8537523",
+      "name": "租赁",
+      "font_class": "zulin",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "9942074",
+      "name": "合同",
+      "font_class": "hetong",
+      "unicode": "e7bd",
+      "unicode_decimal": 59325
+    },
+    {
+      "icon_id": "14273120",
+      "name": "商场超市",
+      "font_class": "shangchangchaoshi",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "14482904",
+      "name": "菜单管理",
+      "font_class": "caidanguanli",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "943235",
+      "name": "账户",
+      "font_class": "guanxiaobaotubiao09",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "2150192",
+      "name": "商铺管理",
+      "font_class": "shangpuguanli",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "2280402",
+      "name": "人员",
+      "font_class": "renyuan",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "2466216",
+      "name": "其他",
+      "font_class": "qita",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "4520249",
+      "name": "审核",
+      "font_class": "shenhe",
+      "unicode": "e6b4",
+      "unicode_decimal": 59060
+    },
+    {
+      "icon_id": "4908602",
+      "name": "空铺招租",
+      "font_class": "kongpuzhaozu",
+      "unicode": "e6f5",
+      "unicode_decimal": 59125
+    },
+    {
+      "icon_id": "6190481",
+      "name": "店员",
+      "font_class": "dianyuan",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "6648008",
+      "name": "运营",
+      "font_class": "yunying",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "7009175",
+      "name": "历时数据",
+      "font_class": "lishishuju",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "12597206",
+      "name": "表格",
+      "font_class": "biaoge",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "15534047",
+      "name": "设 置 (1)",
+      "font_class": "shezhi-copy",
+      "unicode": "e6fe",
+      "unicode_decimal": 59134
+    },
+    {
+      "icon_id": "2969234",
+      "name": "注销",
+      "font_class": "Group",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "1246682",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "5760810",
+      "name": "权限",
+      "font_class": "quanxian",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "6179551",
+      "name": "资料",
+      "font_class": "jinengpeixun",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "8073555",
+      "name": "财富",
+      "font_class": "caifu",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "8416400",
+      "name": "出勤",
+      "font_class": "chuqin",
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "11911498",
+      "name": "角色",
+      "font_class": "jiaose",
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "12714477",
+      "name": "订单",
+      "font_class": "icon-",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "12728080",
+      "name": "账户 #ffffff & 20px",
+      "font_class": "zhanghuffffffpx",
+      "unicode": "e6be",
+      "unicode_decimal": 59070
+    }
+  ]
+}
