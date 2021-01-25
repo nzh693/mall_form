@@ -1,74 +1,156 @@
 <template>
   <div class="Welcome">
-    <!-- 基本信息 -->
-    <div class="others" id="shop">
-      <div class="statistic_p1">
-        <div style="padding:8px 0px;font-size: 18px;">
-          <span>店铺 SHOP</span>
-        </div>
-        <div class="text">
-          <div class="in">
-            <span>入驻商铺 : {{this.shopData.rent}}</span>
-          </div>
-          <div class="free">
-            <span>空置商铺 : {{this.shopData.free}}</span>
-          </div>
-          <div class="p1">
-            <div
-              class="total"
-            >空置率 : {{parseFloat(this.shopData.free/this.shopData.shop_total).toFixed(3)}}</div>
-            <div class="rate">商铺总数 : {{this.shopData.shop_total}}</div>
-          </div>
-        </div>
+    <div class="attend_about">
+      <div class="attend_header">
+        <h1>赛程相关</h1>
+        <el-divider content-position="center">
+          <h4>SCHEDULE&#12288;RELATED</h4>
+        </el-divider>
       </div>
-      <div class="statistic_p2">
-        <div style="padding:8px 0px;font-size: 18px;">
-          <span>人员 STAFF</span>
-        </div>
-        <div class="text-mall">
-          <div class="in-staff">
-            <span>商铺人员 : {{this.staffData.assistant}}</span>
+      <div class="container">
+        <div class="c_inner">
+          <div class="attend" @click="jumpto('registfor')">
+            <div class="test_image">
+              <img :src="testPic">
+            </div>
+            <div>
+              <span>报名参赛</span>
+            </div>
           </div>
-          <div class="free-staff">
-            <span>管理人员 : {{this.staffData.admin+this.staffData.manager}}</span>
+          <div class="attend" @click="jumpto('registfor')">
+            <div class="test_image">
+              <img :src="testPic">
+            </div>
+            <div>
+              <span>报名参赛</span>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="statistic_p3">
-        <div style="padding:15px 0px;font-size: 18px;">
-          <span>租赁户 RENTUSER</span>
-        </div>
-        <div class="text">
-          <div class="in-rentUser">
-            <h3>租赁总数 : {{this.rentUserData.rent_user}}</h3>
+          <div class="attend" @click="jumpto('process')">
+            <div class="test_image">
+              <img :src="testPic">
+            </div>
+            <div>
+              <span>参赛流程</span>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="statistic_p4">
-        <div style="padding:10px 0px;font-size: 18px;">
-          <span>合同 CONTRACT</span>
-        </div>
-        <div class="text">
-          <div class="in">
-            <span>生效中 : {{this.contractData.normal}}</span>
+          <div class="attend">
+            <div class="test_image">
+              <img :src="testPic">
+            </div>
+            <div>
+              <span>参赛指导</span>
+            </div>
           </div>
-          <div class="free">
-            <span>逾期数 :{{this.contractData.beyond}}</span>
+          <div class="attend">
+            <div class="test_image">
+              <img :src="testPic">
+            </div>
+            <div>
+              <span>问题解答</span>
+            </div>
           </div>
-          <div class="p1">
-            <div class="p1">
-              <div class="total">结算中 : {{this.contractData.settle}}</div>
-              <div class="rate">有效合同数 : {{this.contractData.contract_total}}</div>
+          <div class="attend">
+            <div class="test_image">
+              <img :src="testPic">
+            </div>
+            <div>
+              <span>社区交流</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- 图表 -->
-    <div class="dom" id="shop">
-      <!-- 员工统计 -->
-      <div class="staff_dom" id="staff"></div>
-      <div class="contract_dom" id="contract"></div>
+    <div class="grada_reivew">
+      <div class="attend_header">
+        <h1>往届回顾</h1>
+        <el-divider content-position="center">
+          <h4>GRADA&#12288;REVIEW</h4>
+        </el-divider>
+      </div>
+      <div class="support_container">
+        <el-carousel :interval="4000" type="card" height="400px">
+          <el-carousel-item v-for="item in 6" :key="item">
+            <h3 class="medium">{{ item }}</h3>
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+    </div>
+    <div class="competition_about">
+      <div class="attend_header">
+        <h1>关于大赛</h1>
+        <el-divider content-position="center">
+          <h4>COMPETITION&#12288;ABOUT</h4>
+        </el-divider>
+      </div>
+      <div class="container">
+        <div class="about">
+          <div class="test_image">
+            <img :src="jiesaoPic">
+          </div>
+          <div>
+            <span>大赛介绍</span>
+          </div>
+        </div>
+        <div class="about">
+          <div class="test_image">
+            <img :src="jiesaoPic">
+          </div>
+          <div>
+            <span>大赛章程</span>
+          </div>
+        </div>
+        <div class="about">
+          <div class="test_image">
+            <img :src="jiesaoPic">
+          </div>
+          <div>
+            <span>赛区列表</span>
+          </div>
+        </div>
+        <div class="about">
+          <div class="test_image">
+            <img :src="jiesaoPic">
+          </div>
+          <div>
+            <span>获奖名单</span>
+          </div>
+        </div>
+        <div class="about">
+          <div class="test_image">
+            <img :src="jiesaoPic">
+          </div>
+          <div>
+            <span>赛区相关</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="works">
+      <div class="attend_header">
+        <h1>大赛优秀作品</h1>
+        <el-divider content-position="center">
+          <h4>OUTSTANDING&#12288;WORKS</h4>
+        </el-divider>
+      </div>
+      <div class="news_container"></div>
+    </div>
+    <div class="news">
+      <div class="attend_header">
+        <h1>新闻</h1>
+        <el-divider content-position="center">
+          <h4>NEWS</h4>
+        </el-divider>
+      </div>
+      <div class="news_container"></div>
+    </div>
+    <div class="support">
+      <div class="attend_header">
+        <h1>赞助支持单位</h1>
+        <el-divider content-position="center">
+          <h4>INVEST&#12288;SPONSOR</h4>
+        </el-divider>
+      </div>
+      <div class="support_container"></div>
     </div>
   </div>
 </template>
@@ -77,181 +159,22 @@
 export default {
   data() {
     return {
-      contractData: "",
-      staffData: "",
-      shopData: "",
-      rentUserData: "",
-      startData: [],
-      endData: [],
-      beyondData: []
+      pictures: [
+        require("../assets/image/show3.png"),
+        require("../assets/image/show2.png"),
+        require("../assets/image/show1.png")
+      ],
+      testPic: require("../assets/image/icons_1.png"),
+      jiesaoPic: require("../assets/image/icons_2.png")
     };
   },
   created() {
-    this.activePath = window.sessionStorage.getItem("activeIndex");
+    // this.activePath = window.sessionStorage.getItem("activeIndex");
   },
-  mounted() {
-    this.getCharData();
-  },
+  mounted() {},
   methods: {
-    initEcharts() {
-      //初始化dom
-      var option1 = {
-        title: {
-          text: "人员分布图",
-          left: "left"
-        },
-        tooltip: {
-          trigger: "item",
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        legend: {
-          orient: "vertical",
-          left: "left",
-          data: ["直接访问", "邮件营销", "联盟广告", "视频广告", "搜索引擎"]
-        },
-        series: [
-          {
-            name: "人员",
-            type: "pie",
-            radius: "55%",
-            center: ["50%", "60%"],
-            data: [
-              { value: this.staffData.assistant, name: "店员" },
-              { value: this.staffData.rent_user, name: "租赁户" },
-              { value: this.staffData.manager, name: "运营经理" },
-              { value: this.staffData.admin, name: "管理员" }
-            ],
-            emphasis: {
-              itemStyle: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: "rgba(0, 0, 0, 0.5)"
-              }
-            }
-          }
-        ]
-      };
-      var option2 = {
-        title: {
-          text: "合同统计情况",
-          left: "left"
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "cross",
-            crossStyle: {
-              color: "#999"
-            }
-          }
-        },
-        toolbox: {
-          feature: {
-            dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar"] },
-            restore: { show: true },
-            saveAsImage: { show: true }
-          }
-        },
-        legend: {
-          data: ["签订", "到期", "结算"]
-        },
-        xAxis: [
-          {
-            type: "category",
-            data: [
-              "1月",
-              "2月",
-              "3月",
-              "4月",
-              "5月",
-              "6月",
-              "7月",
-              "8月",
-              "9月",
-              "10月",
-              "11月",
-              "12月"
-            ],
-            axisPointer: {
-              type: "shadow"
-            }
-          }
-        ],
-        yAxis: [
-          {
-            type: "value",
-            name: "个数",
-            min: 0,
-            max: 20,
-            interval: 2,
-            axisLabel: {
-              formatter: "{value} 个"
-            }
-          },
-          {
-            type: "value",
-            name: "个数",
-            min: 0,
-            max: 10,
-            interval: 2,
-            axisLabel: {
-              formatter: "{value} 个"
-            }
-          }
-        ],
-        series: [
-          {
-            name: "签订",
-            type: "bar",
-            data: this.startData
-          },
-          {
-            name: "到期",
-            type: "bar",
-            data: this.endData
-          },
-          {
-            name: "结算",
-            type: "line",
-            yAxisIndex: 1,
-            data: this.beyondData
-          }
-        ]
-      };
-
-      var staffChart = this.$echarts.init(document.getElementById("staff"));
-      staffChart.setOption(option1);
-      var contractChart = this.$echarts.init(
-        document.getElementById("contract")
-      );
-      contractChart.setOption(option2);
-    },
-
-    //请求基本数据 和echar图表数据
-    getCharData() {
-      this.$http
-        .get("/common/getStatisticData")
-        .then(re => {
-          this.staffData = re.data.data.staff;
-          this.contractData = re.data.data.contract;
-          this.shopData = re.data.data.shop;
-          this.rentUserData = re.data.data.rent_user;
-          this.$http
-            .get("/common/getStatisticEcharData")
-            .then(re => {
-              this.startData = re.data.data.start_time;
-              this.endData = re.data.data.end_time;
-              this.beyondData = re.data.data.beyond_time;
-              this.initEcharts();
-            })
-            .catch(err => {
-              this.$message.error("请求错误");
-            });
-        })
-        .catch(err => {
-          this.$message.error("请求错误");
-        });
+    jumpto(e){
+         this.$router.push({ path:e})
     }
   }
 };
@@ -261,132 +184,104 @@ export default {
 <style scoped>
 .Welcome {
   width: 100%;
-  height: 100%;
-  background-color: #1c1c1c;
+  height: auto;
+  overflow-y: hidden;
 }
-.staff_dom {
-  color: black;
-  background-color: white;
-  font-size: 20px;
-  width: 50%;
+.attend_about {
+  width: 100%;
+  height: 240px;
+}
+.container {
+  width: 100%;
   height: 100%;
-  float: left;
+  margin-top: 40px;
+}
+.c_inner {
+  width: 97%;
+  text-align: center;
+  display: inline-block;
+  border-radius: 2%;
+  /* background-color: blueviolet; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
 }
 
-.contract_dom {
-  color: black;
-  background-color: white;
-  font-size: 20px;
-  width: 50%;
-  height: 100%;
-  float: right;
+.attend {
+  height: 120px;
+  width: 16.3%;
+  display: inline-block;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04); */
 }
-.text-mall {
-  width: 100%;
-}
-.in-staff {
-  width: 40%;
-  height: auto;
-  margin-top: 30px;
-  text-align: left;
-  margin-left: 10%;
-  font-size: 18px;
-  float: left;
-}
-.free-staff {
-  width: 50%;
-  height: auto;
-  margin-top: 30px;
-  text-align: left;
-  font-size: 18px;
-  float: right;
-}
-.in {
-  width: 95%;
-  height: 30%;
-  text-align: left;
-  padding-left: 5%;
-}
-.free {
-  width: 95%;
-  height: 30%;
-  text-align: left;
-  padding-left: 5%;
-}
-.p1 {
-  height: 30%;
-  width: 100%;
-  height: auto;
-}
-.total {
-  float: left;
-  margin-left: 5%;
-}
-.rate {
-  float: right;
-  margin-right: 30px;
-}
-.in-rentUser {
-  text-align: center;
-}
-.rate-contract {
-  margin-right: 50px;
-}
-.others {
-  width: 100%;
-  height: 22%;
-  padding: 20px 0;
+
+
+.attend:hover,
+:focus {
+  background-color: rgb(0, 72, 152);
   color: aliceblue;
 }
-.text {
-  float: left;
-  width: 100%;
-  height: 90%;
+.about {
+  height: 100px;
+  width: 250px;
+  margin-left: 0;
+  display: inline-block;
+  border-radius: 1%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+}
+.attend span {
+  font-size: 17px;
+  vertical-align: middle;
+}
+.about span {
   font-size: 16px;
-  margin-top: 0px;
+  vertical-align: middle;
 }
-
-.statistic {
-  width: 22%;
-  height: 93%;
-  background-color: blueviolet;
-  margin-left: 2.2%;
-  float: left;
+.test_image {
+  margin-bottom: 5px;
 }
-.statistic_p1 {
-  width: 22%;
-  height: 95%;
-  background-color: #fc3158;
-  margin-left: 2.2%;
-  float: left;
+.test_image img {
+  width: 50px;
+  margin-top: 10px;
 }
-
-.statistic_p2 {
-  width: 22%;
-  height: 95%;
-  background-color: #53d769;
-  margin-left: 2.2%;
-  float: left;
+.about:hover,
+:focus {
+  background-color: rgb(0, 72, 152);
+  color: aliceblue;
 }
-
-.statistic_p3 {
-  width: 22%;
-  height: 95%;
-  background-color: #147efb;
-  margin-left: 2.2%;
-  float: left;
+.attend_header h1 {
+  color: rgb(0, 72, 152);
+  font-size: 24px;
 }
-.statistic_p4 {
-  width: 22%;
-  height: 95%;
-  background-color: #2a2727;
-  margin-left: 2.2%;
-  float: left;
-}
-
-.dom {
-  background-color: green;
+.competition_about {
   width: 100%;
-  height: 75%;
+  height: 250px;
+}
+
+.grada_reivew {
+  width: 100%;
+  height: 500px;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+  border-radius: 2%;
+}
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+  border-radius: 2%;
+}
+.el-carousel-item {
+  width: 300px;
+}
+.works {
+  width: 100%;
+  height: 500px;
+}
+.news {
+  width: 100%;
+  height: 500px;
+}
+
+.support {
+  width: 100%;
+  height: 500px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="Welcome">
-        <h2>审核管理</h2>
+         <h2>竞赛社区</h2>
     </div>
 </template>
 
@@ -66,14 +66,12 @@ export default {
 </script>
 
 <style scope>
+
+
 .Welcome{
       color: black;
       font-size: 20px;
   }
-.el-form {
-  margin-left: 500px;
-  text-align: center;
-}
 </style>
 
 

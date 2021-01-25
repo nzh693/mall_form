@@ -15,6 +15,7 @@ import './assets/css/global.css'
 import './assets/font_icons/iconfont.css'
 //导入网络请求
 import axios from 'axios'
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 Vue.prototype.$http=axios
 //导入字符串解析和序列化库
 import qs from 'qs'
@@ -22,13 +23,14 @@ Vue.prototype.$qs = qs;
 
 
 //设置网络请求的基本路径
-axios.defaults.baseURL='http://193.112.195.243:8888/api/v1/'
+
+
 //网络请求拦截器 将token设置到请求头中
 
-axios.interceptors.request.use(config=>{
-  config.headers.token = window.sessionStorage.getItem('token');
-  return config;//最后必须返回config
-})
+// axios.interceptors.request.use(config=>{
+//   config.headers.token = window.sessionStorage.getItem('token');
+//   return config;//最后必须返回config
+// })
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

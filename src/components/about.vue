@@ -1,63 +1,6 @@
 <template>
   <div class="Welcome">
-    
-    <el-card class="box-card">
-      <div slot="header" class="clearfix">
-        <h4>注册账户</h4>
-      </div >
-      <div class="container">
-          <el-form ref="acountFormRef" :rules="this.acountFormRules" :model="acountForm">
-        <el-form-item prop="acount" label="账户名" :label-width="formLabelWidth">
-          <el-input
-            class="input"
-            v-model="acountForm.acount"
-            autocomplete="true"
-            style="width:250px;"
-          ></el-input>
-        </el-form-item>
-        <el-form-item prop="password" label="账户密码" :label-width="formLabelWidth">
-          <el-input
-            class="input"
-            v-model="acountForm.password"
-            autocomplete="true"
-            style="width:250px;"
-          ></el-input>
-        </el-form-item>
-        <el-form-item prop="email" label="账户绑定邮箱" :label-width="formLabelWidth">
-          <el-input
-            class="input"
-            v-model="acountForm.email"
-            autocomplete="true"
-            style="width:250px;"
-          ></el-input>
-        </el-form-item>
-        <el-form-item label="账户类型" :label-width="formLabelWidth">
-          <el-select
-            class="input"
-            v-model="acountForm.type"
-            placeholder="请选择类型"
-            style="width:250px;"
-          >
-            <el-option label="管理员" value="admin"></el-option>
-            <el-option label="租赁户" value="rentuser"></el-option>
-            <el-option label="运营经理" value="manager"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item class="input" label="账户权限" :label-width="formLabelWidth">
-          <el-select v-model="acountForm.power" placeholder="请选择权限 " style="width:250px;">
-            <el-option label="一级权限" value="1"></el-option>
-            <el-option label="二级权限" value="2"></el-option>
-            <el-option label="三级权限" value="3"></el-option>
-          </el-select>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="warning" @click="reset">重 置</el-button>
-        <el-button type="primary" @click="add">确 定</el-button>
-      </div>
-      </div>
-      
-    </el-card>
+    <h2>关于大赛</h2>
   </div>
 </template>
 

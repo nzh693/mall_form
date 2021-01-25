@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { Button,Table,TableColumn,Form,FormItem,Input,Message,Container,Header,Aside,Footer,Main,
     Menu,Submenu,MenuItemGroup,MenuItem,Breadcrumb,
     BreadcrumbItem,Card,Row,Col,Switch,Dialog,
-    Pagination,Row,Col,Tooltip,collapse,CollapseItem,Upload,Badge} from 'element-ui'
+    Pagination,Row,Col,Tooltip,collapse,CollapseItem,Upload,Badge,Image,Divider,Step,Steps} from 'element-ui'
 
 
 
@@ -36,18 +36,10 @@ vue.use(collapse)
 vue.use(CollapseItem)
 vue.use(Upload)
 vue.use(Badge)
-
-
-
-
-
-
-
-
-
-
-
-
+vue.use(Image)
+vue.use(Divider)
+vue.use(Step)
+vue.use(Steps)
 
 
 

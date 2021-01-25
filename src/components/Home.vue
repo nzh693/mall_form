@@ -1,68 +1,58 @@
 <template>
   <div class="home_container">
     <el-container>
-      <!-- 头部 -->
       <el-header>
-        <div class="head_image">
-          <img src="../assets/image/login.png" alt="">
-          <span>商场店铺管理系统</span>
-        </div>
-        <div>
-          <el-row :gutter="40">
-            <el-tooltip effect="light" content="退出" placement="bottom">
-              <el-col :span="6">
-                <i class="iconfont icon-Group" @click="logout"></i>
-              </el-col>
-            </el-tooltip>
+        <!-- 菜单 -->
+        <div class="menu_container">
+          <el-row>
+            <el-col :span="4">
+              <div class="grid-content bg-purple-dark"></div>
+            </el-col>
+            <el-col :span="20">
+              <div class="menu">
+                <el-menu
+                  :default-active="this.$router.path"
+                  class="el-menu-demo"
+                  mode="horizontal"
+                  @select="handleSelect"
+                  router
+                >
+                  <el-submenu :index="item.indexPath+''" v-for="item in menus" :key="item.id">
+                    <template slot="title">
+                      <span style="font-size:18px;">{{item.name}}</span>
+                    </template>
+                    <div v-if="item.subMenuList.length>0">
+                      <el-menu-item
+                        :index="subItem.subIndexPath+''"
+                        v-for="subItem in item.subMenuList"
+                        :key="subItem.id"
+                      >
+                        <span style="font-size:16px;">{{subItem.subName}}</span>
+                      </el-menu-item>
+                    </div>
+                  </el-submenu>
+                </el-menu>
+                <div class="line"></div>
+              </div>
+            </el-col>
           </el-row>
-          <!-- <ul>
-            <i class="iconfont icon-shezhi" style="width:50px;height:50px;"></i>
-            <i class="iconfont icon-Group"></i>
-          </ul>-->
+        </div>
+        <!-- 轮播广告 -->
+        <div class="block_image">
+          <el-carousel height="270px">
+            <el-carousel-item v-for="pic in pictures" :key="pic.index">
+              <img style="height:100%;width:100%" :src="pic">
+            </el-carousel-item>
+          </el-carousel>
         </div>
       </el-header>
       <!-- 主区域 -->
       <el-container>
-        <!-- 侧边栏 -->
-        <el-aside width="200px">
-          <el-menu
-            :default-active="activePath"
-            text-color="#fff"
-            active-text-color="#2255a4"
-            background-color="#1f262d"
-            :unique-opened="true"
-            :router="true"
-          >
-            <!-- 一级菜单 -->
-            <el-submenu :index="item.path+''" v-for="item in menudate" :key="item.path">
-              <template slot="title">
-                <i :class="item.iconpath"></i>
-                <span>{{item.name}}</span>
-              </template>
-              <!-- 二级菜单 -->
-              <el-menu-item
-                style="margin-left:20px;"
-                :index="subItem.sPath+''"
-                v-for="subItem in item.submenus"
-                :key="subItem.sId"
-                @click="saveActiveIndex(subItem.subPath)"
-              >
-                <template slot="title">
-                  <i :class="subItem.sIconpath"></i>
-                  <span>{{subItem.sName}}</span>
-                  <el-badge v-if="subItem.sIconpath=='iconfont icon-shenhe'?true:false"  :value="12" class="item">
-                  </el-badge>
-                </template>
-              </el-menu-item>
-            </el-submenu>
-          </el-menu>
-        </el-aside>
         <el-container>
-          <el-main>
-            <!-- 路由占位符  -->
+          <el-main style="padding:0 300px;margin-top: 235px;">
+            <!-- 三级路由  -->
             <router-view></router-view>
           </el-main>
-          <el-footer>地址/NZH_693@193.com</el-footer>
         </el-container>
       </el-container>
     </el-container>
@@ -74,15 +64,23 @@
 export default {
   data() {
     return {
-      activePath: "",
-      menudate: [],
-      tableData: {}
+      searchContent: "",
+      searchType: "",
+      activeIndex: "1",
+      dialogVisible: false,
+      menus: [],
+      pictures: [
+        require("../assets/image/show3.png"),
+        require("../assets/image/show2.png"),
+        require("../assets/image/show1.png")
+      ],
+     
     };
   },
   created() {
     this.getMenu();
-    this.activePath = window.sessionStorage.getItem("activeIndex");
   },
+
   methods: {
     // 退出
     logout() {
@@ -104,115 +102,71 @@ export default {
     },
     // 获取主页菜单
     async getMenu() {
-      this.menudate = JSON.parse(window.sessionStorage.getItem("menus"));
+      // this.menudate = JSON.parse(window.sessionStorage.getItem("menus"));
+      this.$http
+        .post(
+          "http://localhost:8090/restful/api/v1/system/menu/find",
+          JSON.stringify({
+            id: 0,
+            data: 1
+          })
+        )
+        .then(
+          re => {
+            if (re.data.code == "OK") {
+              this.menus = re.data.data;
+            }
+          },
+          err => {
+            this.$message.error({
+              message: "请求失败"
+            });
+          }
+        );
     },
     // 保存菜单的活跃项到session本地
     saveActiveIndex(e) {
       window.sessionStorage.setItem("activeIndex", e);
       this.activePath = e;
+    },
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
     }
   }
 };
 </script>
 
 <style  scoped>
-.home_container {
-}
+
 .el-header {
-  background-color: #1f262d;
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  padding-left: 0;
-  font-size: 14px;
-  align-items: center;
-  padding-top: 10px;
+  margin-top: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+.menu_container {
+  width: 100%;
+  background-color: #fff;
+  padding: 0;
+}
+.menu {
+  margin-left: 240px;
 }
 
-.nav-path {
-  color: white;
-  font-size: 18px;
+.login_info {
+  padding: 0 10px;
+  width: 100%;
+  bottom: 0;
+  margin-top: -30px;
+  box-sizing: border-box;
+  margin-left: 0px;
 }
-
-.head_image {
-  display: flex;
-  align-items: center;
-  border-radius: 50%;
-  height: 60px;
-  color: #eee;
-}
-.head_image span {
-  margin-left: 20px;
-}
-
-#button_logout {
-}
-.head_image img {
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  float: right;
-}
-
-.el-footer {
-  background-color: #1f262d;
-  text-align: center;
-  color: #fff;
-  line-height: 60px;
-}
-
-.el-aside {
-  background-color: #2e363f;
-  color: #fff;
-  text-align: center;
-  line-height: 200px;
-}
-.el-menu {
-  border-right: none;
-}
-
-.el-main {
-  background-color: #eeeeee;
-  color: #fff;
-  text-align: center;
-}
-.home_container {
+.block_image {
+  width: 100%;
   height: 100%;
-}
-.el-container {
-  height: 100%;
-}
-.el-row {
-  margin-top: 13px;
-  height: 50px;
-  width: 120px;
-}
-.el-col {
-}
-.iconfont {
-  font-size: 23px;
-}
-.bg-purple-dark {
-  background: rebeccapurple;
-}
-.bg-purple {
-  background: green;
-}
-.item {
-  margin-left: 2px;
-}
-.el-badge__content{
-    background-color: blueviolet;
-    border-radius: 8px;
-    color: #FFF;
-    display: inline-block;
-    font-size: 10px;
-    height: 12px;
-    line-height: 18px;
-    padding: 0 6px;
-    text-align: center;
-    white-space: nowrap;
-    border: 0px solid #FFF;
+  padding: 0;
 }
 </style>
 
